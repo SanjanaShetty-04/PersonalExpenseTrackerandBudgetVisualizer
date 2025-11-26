@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Add Transaction</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f9fa;
+      padding: 2rem;
+      max-width: 450px;
+      margin: auto;
+    }
+    h2 {
+      color: #9b59b6;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    form {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+    select,
+    input[type="number"],
+    input[type="text"],
+    input[type="date"] {
+      width: 100%;
+      padding: 0.6rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+    select:focus,
+    input[type="number"]:focus,
+    input[type="text"]:focus,
+    input[type="date"]:focus {
+      border-color: #9b59b6;
+      outline: none;
+    }
+    input[type="submit"] {
+      background-color: #9b59b6;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+    input[type="submit"]:hover {
+      background-color: #8e44ad;
+    }
+    p a {
+      display: block;
+      margin-top: 1.2rem;
+      text-align: center;
+      color: #9b59b6;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    p a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h2>Add Transaction</h2>
+  <form action="../dbms_backend/add_transaction.php" method="post">
+    <label for="type">Type:</label>
+    <select name="type" id="type" required>
+      <option value="income">Income</option>
+      <option value="expense">Expense</option>
+    </select>
+
+    <label for="category">Category:</label>
+    <input type="text" name="category" id="category" required>
+
+    <label for="amount">Amount:</label>
+    <input type="number" name="amount" id="amount" step="0.01" required>
+
+    <label for="date">Date:</label>
+    <input type="date" name="date" id="date" required>
+
+    <input type="submit" value="Add Transaction">
+  </form>
+  <p><a href="transaction.html">Back to Transactions</a></p>
+</body>
+</html>
